@@ -1,9 +1,11 @@
 package com.gh.rgiaviti.b3.histparser.data.models
 
-data class Historico(
-    val header: Header,
+class Historico {
+    lateinit var header: Header
+    var cotacoesHistoricas: MutableList<CotacaoHistorica> = mutableListOf()
+    lateinit var trailer: Trailer
 
-    val cotacaoHistorica: CotacaoHistorica,
-
-    val trailer: Trailer
-)
+    fun addCotacaoHistorica(cotacaoHistorica: CotacaoHistorica) {
+        this.cotacoesHistoricas.add(cotacaoHistorica)
+    }
+}

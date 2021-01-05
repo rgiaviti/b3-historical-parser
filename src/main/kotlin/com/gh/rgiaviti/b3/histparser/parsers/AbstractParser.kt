@@ -15,6 +15,6 @@ abstract class AbstractParser {
     }
 
     protected fun toBigDecimal(value: String): BigDecimal {
-        return BigDecimal(value.toInt() / 100)
+        return BigDecimal(value.toLong()).divide(BigDecimal(100))
     }
 }

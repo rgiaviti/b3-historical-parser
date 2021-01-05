@@ -14,7 +14,7 @@ object B3FileParser {
     fun parse(file: File): List<Historico> {
         return when {
             file.isFile -> {
-                this.parseFile(file)
+                return listOf(this.parseFile(file))
             }
             file.isDirectory -> {
                 this.parseDirectory(file)
@@ -25,25 +25,35 @@ object B3FileParser {
         }
     }
 
-    private fun parseDirectory(file: File): List<Historico> {
-        return emptyList()
+    private fun parseDirectory(dir: File): List<Historico> {
+        val historicoList = mutableListOf<Historico>()
+
+        dir.listFiles()?.forEach { file ->
+            historicoList.add(this.parseFile(file))
+        }
+
+        return historicoList
     }
 
-    private fun parseFile(file: File): List<Historico> {
+    private fun parseFile(file: File): Historico {
+        val historico = Historico()
+
+        println("Parsing ${file.name}")
+
         file.forEachLine { line ->
             when (FileRecordTypeParser.fileTypeRecord(line)) {
                 FileRecord.HEADER -> {
-                    val header = HeaderParser.parse(line)
+                    historico.header = HeaderParser.parse(line)
                 }
                 FileRecord.COTACAO_HISTORICO -> {
-                    val cotacaoHistorica = CotacaoHistoricoParser.parse(line)
+                    historico.addCotacaoHistorica(CotacaoHistoricoParser.parse(line))
                 }
                 FileRecord.TRAILER -> {
-                    val trailer = TrailerParser.parse(line)
+                    historico.trailer = TrailerParser.parse(line)
                 }
             }
         }
 
-        return emptyList()
+        return historico
     }
 }
