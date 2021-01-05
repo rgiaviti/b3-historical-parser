@@ -1,0 +1,44 @@
+package com.gh.rgiaviti.b3.histparser.data.models
+
+import java.math.BigDecimal
+import java.time.LocalDate
+
+data class CotacaoHistorica(
+    val tipoRegistro: String,
+
+    val dataPregao: LocalDate,
+
+    val codigoBDI: String,
+
+    val ticker: String,
+
+    val segmentoNegocicao: String,
+
+    val nomeResumidoEmpresa: String,
+
+    val especificacaoPapel: String,
+
+    val prazoDiasMErcadoTermo: String,
+
+    val moedaReferencia: String,
+
+    val precos: Precos,
+
+    val numeroNegociosEfetuados: Long,
+
+    val quantidadeTotalTitulosNegociados: Long,
+
+    val volumeTotalTitulosNegociados: Long,
+
+    val precoExercicioOpcoesOuTermo: BigDecimal,
+
+    val indicadorCorrecaoPrecos: Int,
+
+    val dataVencimentoOpcoesOuTermo: LocalDate,
+
+    val fatorCotacaoPapel: Int,
+
+    val codigoIsin: String,
+
+    val numeroDistribuicaoPapel: String
+)
