@@ -5,9 +5,9 @@ enum class HeaderPositions(
     val endPos: Int,
     val descricao: String
 ) {
-    TIPO_REGISTRO(0, 2, "Tipo de Registro"),
-    NOME_ARQUIVO(2, 15, "Nome do Arquivo"),
-    CODIGO_ORIGEM(15, 23, "Código da Origem"),
-    DATA_GERACAO_ARQUIVO(23, 31, "Data do Geração do Arquivo"),
-    RESERVA(31, 245, "Campo Reservado");
+    TIPO_REGISTRO(0, 2, "TIPO DE REGISTRO"),
+    NOME_ARQUIVO(2, 15, "NOME DO ARQUIVO"),
+    CODIGO_ORIGEM(15, 23, "CÓDIGO DA ORIGEM"),
+    DATA_GERACAO_ARQUIVO(23, 31, "DATA DE GERAÇÃO DO ARQUIVO"),
+    RESERVA(31, 245, "CAMPO RESERVADO");
 }

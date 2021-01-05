@@ -8,7 +8,7 @@ object HeaderParser : AbstractParser() {
 
     fun parse(line: String): Header {
         if (line.isBlank()) {
-            throw LineIsBlankException("the line is blank when trying to parse header")
+            throw LineIsBlankException("the line is blank when trying to parse 'header'")
         }
 
         return Header(

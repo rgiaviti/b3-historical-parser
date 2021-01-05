@@ -12,13 +12,13 @@ data class CotacaoHistorica(
 
     val ticker: String,
 
-    val segmentoNegocicao: String,
+    val tipoMercado: String,
 
     val nomeResumidoEmpresa: String,
 
     val especificacaoPapel: String,
 
-    val prazoDiasMErcadoTermo: String,
+    val prazoDiasMercadoTermo: String,
 
     val moedaReferencia: String,
 
@@ -37,6 +37,8 @@ data class CotacaoHistorica(
     val dataVencimentoOpcoesOuTermo: LocalDate,
 
     val fatorCotacaoPapel: Int,
+
+    val precoPontosOpcoesDolar: BigDecimal,
 
     val codigoIsin: String,
 
